@@ -1,7 +1,7 @@
 .idea
 node_modules
 public/bower_components
-public/files
+public/files/*
 public/fonts
 public/dist
 front/.template-cache
