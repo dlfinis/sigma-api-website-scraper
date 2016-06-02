@@ -1,9 +1,9 @@
 module.exports = {
 	subdirectories: [
-		{directory: 'img', extensions: ['.png', '.jpg', '.jpeg', '.gif']},
+		{directory: 'img', extensions: ['.png', '.jpg', '.jpeg', '.gif','.bmp']},
 		{directory: 'js', extensions: ['.js']},
 		{directory: 'css', extensions: ['.css']},
-		{directory: 'fonts', extensions: ['.ttf', '.woff', '.eot', '.svg']},
+		{directory: 'fonts', extensions: ['.ttf', '.woff', '.eot', '.svg','woff2']},
 		{directory: 'audio', extensions: ['.mp3']}
 	],
 	sources: [

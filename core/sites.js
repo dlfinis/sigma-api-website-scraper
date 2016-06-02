@@ -131,6 +131,25 @@ var service = {
 			});
 
 			if (!found) {
+				return Promise.reject(getNotFoundError(found));
+			}
+
+			return Promise.resolve(buildSiteObject(found));
+		})
+	},
+	check: function check(url) {
+	 var siteDirname = getSiteRawDirname(url);
+	 var dirname = siteDirname.domain+'-'+siteDirname.path;
+	 var timeNow = new Date().getTime();
+		return getSitesDirectories().then(function (directories) {
+			directories = _.sortBy(directories, ['directory']).reverse();
+			var found = _.find(directories, function(el) {
+				var odirname = String(el).substring(0,el.lastIndexOf('-'));
+				var ocreatedAt = el.substring(el.lastIndexOf('-')+1) || new Date().getTime();
+				return odirname === dirname && getDiffDays(ocreatedAt,timeNow) <= defaults.refresh ;
+			});
+
+			if (!found) {
 				return service.scrape({url:url});
 			}
 
@@ -138,15 +157,22 @@ var service = {
 		})
 	},
 
-	getFullPath: function getFullPath(dirname) {
+	getFullPath: function getFullPath(url) {
+		var siteDirname = getSiteRawDirname(url);
+		var dirname = siteDirname.domain+'-'+siteDirname.path;
 		return getSitesDirectories().then(function (directories) {
-			var exists = directories.indexOf(dirname) > -1;
+			directories = _.sortBy(directories, ['directory']).reverse();
+			var found = _.find(directories, function(el) {
+				var odirname = String(el).substring(0,el.lastIndexOf('-'));
+				return odirname === dirname;
+			});
 
-			if (!exists) {
+			if (!found) {
 				return Promise.reject(getNotFoundError(dirname));
 			}
 
-			return Promise.resolve(getSiteFullPath(dirname));
+			return Promise.resolve(getSiteFullPath(found));
+
 		});
 	}
 };
