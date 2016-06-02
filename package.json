@@ -1,5 +1,5 @@
 {
-  "name": "sigma-web-scraper",
+  "name": "sigma-api-website-scraper",
   "version": "0.0.5",
   "description": "Backend API for sites scraped",
   "main": "app/index.js",
@@ -17,6 +17,6 @@
     "lodash": "^3.5.0",
     "pmx": "^0.3.9",
     "string-template": "^1.0.0",
-    "website-scraper": "^1.0.0"
+    "sigma-website-scraper": "git+https://github.com/dlfinis/sigma-node-website-scraper.git"
   }
 }

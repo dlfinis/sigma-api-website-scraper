@@ -5,8 +5,8 @@ var Promise = require('bluebird');
 var url = require('url');
 var fs = Promise.promisifyAll(require('fs'));
 var path = require('path');
-var scraper = require('website-scraper');
 var format = require('string-template');
+var scraper = require('sigma-website-scraper');
 
 
 function getDiffDays ( date1, date2 ) {
