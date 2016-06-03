@@ -14,6 +14,6 @@ addMiddlewares(app);
 addRoutes(app);
 
 app.listen(port,ipaddress, function () {
-  console.log("Listening on " + server_ip_address + ", server_port " + port );
+  console.log("Listening on " + ipaddress + ", server_port " + port );
   console.log("Api Scraper Init");
 });
