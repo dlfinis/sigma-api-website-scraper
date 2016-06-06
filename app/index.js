@@ -11,7 +11,6 @@ addMiddlewares(app);
 addRoutes(app);
 
 app.listen(config.port, function () {
-  console.log("Listening on " + process.env.OPENSHIFT_NODEJS_IP || config.ipaddress +
-    ", server_port " + config.port );
+  console.log("Listening on " + (process.env.OPENSHIFT_NODEJS_IP || config.ipaddress) + ", server_port " + config.port );
   console.log("+ Api Scraper Init");
 });

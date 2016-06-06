@@ -81,12 +81,12 @@ var service = {
 
 		var scraperOptions = _.extend({}, defaults, {
 			urls: [options.url],
-			directory: siteFullPath,
+			directory: siteFullPath
 			// If defaults object has request property, it will be superseded by options.request
-			request: options.request
+			// request: options.request
 		});
-
 		return scraper.scrape(scraperOptions).then(function() {
+			console.log('+ End Site scrape');
 			return Promise.resolve(buildSiteObject(siteDirname));
 		});
 		return Promise.resolve(true);
@@ -149,6 +149,7 @@ var service = {
 				return odirname === dirname && getDiffDays(ocreatedAt,timeNow) <= defaults.refresh ;
 			});
 
+			console.log('+'+(!found ? 'Not':'')+'Site >'+'\n'+JSON.stringify(found ? found : '[]'));
 			if (!found) {
 				return service.scrape({url:url});
 			}

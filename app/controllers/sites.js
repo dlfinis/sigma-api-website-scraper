@@ -5,11 +5,11 @@ module.exports = {
 	scrape: sites.scrape,
 	list: sites.list,
 	check: function (params,req,res) {
-		console.log('+ URL Origin > '+params.url);
+		console.log('+ CHECK URL Origin > '+params.url);
 		return sites.check(params.url);
 	},
 	get: function (params,req,res) {
-		console.log('+ URL Origin > '+params.url);
+		console.log('+ GET URL Origin > '+params.url);
 		return sites.get(params.url);
 	},
 	find: function(params) {
