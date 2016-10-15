@@ -10,7 +10,7 @@ var app = express();
 addMiddlewares(app);
 addRoutes(app);
 
-app.listen(config.port, function () {
-  console.log("Listening on " + (process.env.OPENSHIFT_NODEJS_IP || process.env.NODE_PORT || config.ipaddress) + ", server_port " + process.env.SCRAPER_PORT || config.port );
+app.listen(process.env.SCRAPER_PORT || config.port, function () {
+  console.log("Listening on:",(process.env.OPENSHIFT_NODEJS_IP || process.env.NODE_PORT || config.ipaddress)," server_port:",process.env.SCRAPER_PORT || config.port );
   console.log("+ API Scraper Init");
 });
