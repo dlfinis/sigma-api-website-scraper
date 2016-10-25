@@ -25,10 +25,9 @@ function getDiffDays ( date1, date2 ) {
 function getSiteRawDirname (siteUrl) {
 	var urlObj = url.parse(siteUrl);
 	var domain = urlObj.host;
-	var path = urlObj.path.replace('/','_7-_');
-  path = urlObj.path.replace('&','_8-_');
-	path = urlObj.path.replace('?', '_9-_');
-	path = urlObj.path.replace('=', '_0-_');
+  console.log('Origin:',urlObj.path);
+  var path = urlObj.path.replace(/\//gim,'_7_').replace(/\&/gim,'_8_').replace(/\?/gim, '_9_').replace(/\=/gim, '_0_');
+  console.log('Dirname:',path);
 	return {
 		domain : domain,
 		path : path,
