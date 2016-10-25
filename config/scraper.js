@@ -10,6 +10,7 @@ module.exports = {
 		{selector: 'img:not([src^="//mc.yandex.ru/watch/"], [src^="//top-fwz1.mail.ru/counter"])', attr: 'src'},
 		{selector: 'input', attr: 'src'},
 		{selector: 'script', attr: 'src'},
+		{selector: 'script', attr: 'iframe.src'},
 		{selector: 'link[rel="stylesheet"]', attr: 'href'},
 		{selector: 'link[rel*="icon"]',	attr: 'href'},
 		{selector: 'object', attr: 'data'},

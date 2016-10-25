@@ -26,6 +26,8 @@ function getSiteRawDirname (siteUrl) {
 	var urlObj = url.parse(siteUrl);
 	var domain = urlObj.host;
 	var path = urlObj.path.replace(new RegExp('/', 'g'), '_');
+	path = urlObj.path.replace(new RegExp('?', 'g'), '-9');
+	path = urlObj.path.replace(new RegExp('&', 'g'), '-8');
 	return {
 		domain : domain,
 		path : path,
